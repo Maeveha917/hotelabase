@@ -8,12 +8,8 @@
 </head>
 
 <body>
-    <?php include("nav.php"); ?>
-
     <div class="">
-    <h1 onclick="getTableData('test',100,100)">This is a Heading do not click</h1>
-    <p>This is a paragraph.</p>
-    <p>This is another paragraph.</p>
+    <h1 onclick="drawTable('booking')">generate table</h1>
     </div>
 
     <div id="table">
@@ -21,12 +17,12 @@
 </body>
 
 <script>
-function getTableData(name,itemsPerPage,pageNo) {
+function drawTable(name) {
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
         document.getElementById("table").innerHTML = this.responseText;
     }
-    xhttp.open("GET", "test.php?name="+name);
+    xhttp.open("GET", "drawTable.php?name="+name);
     xhttp.send();
 }
 </script>
