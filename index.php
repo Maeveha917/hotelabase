@@ -7,13 +7,13 @@
     <title>Hotelabase</title>
 </head>
 
-<body>
-    <div class="">
-    <h1 onclick="drawTable('booking')">generate table</h1>
-    </div>
+<?php
+    include("tableMenu.php");           
+?>
 
-    <div id="table">
-    </div>
+<body>
+    <div id="table menu"></div>
+    <div id="table"></div>
 </body>
 
 <script>
@@ -25,5 +25,6 @@ function drawTable(name) {
     xhttp.open("GET", "drawTable.php?name="+name);
     xhttp.send();
 }
+
 </script>
 </html>

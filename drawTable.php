@@ -3,6 +3,7 @@
 
     //connect to db
     $db = new SQLite3("database.db");
+    //get all items from table
     $result = $db->query("SELECT * FROM ".$table_name);
 
     $column_amount = $result->numColumns();
@@ -11,17 +12,20 @@
     //draw names of columns as table headings
     echo "<tr>";
         for ($i =0;$i<$column_amount;$i++){
-            echo "<td>".$result->columnName($i)."</td>";
+            echo "<th>".$result->columnName($i)."</th>";
         }
     echo "</tr>";
     //draw table content corresponding to each heading
     while ($row = $result->fetchArray(SQLITE3_NUM)) {
-        //echo "guestID: " . $row['guestID'] . " | FName: " . $row['firstName'] . " | Lname: " .$row['lastName'] . " | telNo: " .$row['telNo'] . " | email: " .$row['email'] . " | notes: " .$row['notes'] . "<a href='editGuest.php?guestID=".$row['guestID']."''>Edit</a> " . "<a href='deleteGuest.php?guestID=".$row['guestID']."'>Delete</a>". "<br>";
+        
         echo "<tr>";
+        //print each item in each row
         for ($i =0;$i<$column_amount;$i++){
             echo "<td contenteditable='true'>".$row[$i]."</td>";
         }
-        echo "";
+        //edit button, upon click update database with new values. !!only if valid!!
+        //delete button
+        //echo "<td onclick='drawTable(`room`)'>evil evil evil</td>";
         echo "</tr>";
     }
     echo "</table>";
