@@ -13,16 +13,26 @@
 
 <body>
     <div id="table menu"></div>
-    <div id="table"></div>
+    <div id="table">Click any of the above buttons to display table contents</div>
 </body>
 
 <script>
-function drawTable(name) {
+//takes an arbitrary tables name, and draws it
+function drawTable(tableName) {
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
         document.getElementById("table").innerHTML = this.responseText;
     }
-    xhttp.open("GET", "drawTable.php?name="+name);
+    xhttp.open("GET", "drawTable.php?name="+tableName);
+    xhttp.send();
+}
+//deletes an entry from any given table, with the use of the corrosponding primary key
+function deleteEntry(tableName,pkName,key){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        alert(this.responseText);
+    }
+    xhttp.open("GET", "deleteEntry.php?name="+tableName+"&pkName="+pkName+"&key="+key);
     xhttp.send();
 }
 
