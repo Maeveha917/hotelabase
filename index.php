@@ -35,6 +35,15 @@ function deleteEntry(tableName,pkName,key){
     xhttp.open("GET", "deleteEntry.php?name="+tableName+"&pkName="+pkName+"&key="+key);
     xhttp.send();
 }
+//adds new entry to specified table
+function createEntry(tableName,fieldArray){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        alert(this.responseText);
+    }
+    xhttp.open("GET", "createEntry.php?name="+tableName+"&fieldArray="+fieldArray);
+    xhttp.send();
+}
 
 </script>
 </html>

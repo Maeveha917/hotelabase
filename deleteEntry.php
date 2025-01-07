@@ -7,7 +7,6 @@
     
     //connect to db
     $db = new SQLite3("database.db");
-    //get name(s)(for now only one primary key may work) of primary key of table
     
     //TODO only allow deletion if pk is not used as foreign key anywhere in database
     //execute query to delete item based on primary key in table

@@ -11,13 +11,14 @@
     //get name(s)(for now only one primary key may work) of primary key of table
     $pkName = $db->query("SELECT l.name FROM pragma_table_info('".$table_name."') as l WHERE l.pk = 1;")->fetchArray(SQLITE3_NUM)[0];
    
-    echo "<table>";
+    echo "<table> <thead>";
     //draw names of columns as table headings
     echo "<tr>";
         for ($i =0;$i<$field_amount;$i++){
             echo "<th>".$result->columnName($i)."</th>";
         }
-    echo "</tr>";
+    echo "</tr> </thead> <tbody>";
+    
     //draw table content corresponding to each heading, entry at a time
     while ($entry = $result->fetchArray(SQLITE3_BOTH)) {
         
@@ -27,12 +28,20 @@
             echo "<td contenteditable='true'>".$entry[$i]."</td>";
         }
         //edit button, upon click update database with new values. !!only if valid!!
+        echo "<td><button>Update</button></td>";
         //delete button, with elements associated table name and id
         //TODO find better way to concat here
         echo "<td><button onclick='deleteEntry(`".$table_name."`,`".$pkName."`,`".$entry[$pkName]."`)'>Delete</button></td>";
         echo "</tr>";
     }
-    echo "</table>";
+    //text entry for creation of new item
+    echo "<tr>";
+        for ($i =0;$i<$field_amount;$i++){
+            echo "<td><input type = 'text' placeholder = '".$result->columnName($i)."'></td>";
+        }
+        echo "<th><button>Create New</button></th>";
+    echo "</tr>";
+    echo "</tbody></table>";
 
     //close database connection
     $db->close();
