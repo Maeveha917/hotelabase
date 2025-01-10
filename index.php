@@ -35,15 +35,13 @@
         xhttp.send();
     }
     //adds new entry to specified table
-    function createEntry(tableName){
-        console.log("createEntry called.");
+    function createNewEntry(tableName){
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
-            let contents = getTagContents("newField");
-            console.log(contents);
+            alert(this.responseText);
         }
-        xhttp.open("GET", "createEntry.php?name="+tableName);
-        xhttp.send();
+        xhttp.open("GET", "createEntry.php?name="+tableName+"&fieldArray="+JSON.stringify(getTagContents("newField")));
+        xhttp.send(); 
     }
     //retrives the contents of tags with a common start of their id followed by a number
     function getTagContents(idPrefix){
@@ -55,7 +53,6 @@
             //gets element at corrosponding id while iterating to next
             let element = document.getElementById(idPrefix+elementNo++);
             if (element){
-                console.log(element.value);
                 contentArray.push(element.value);
             }else{
                 elementPresent = false;

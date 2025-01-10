@@ -42,7 +42,7 @@
             //text input for each field in table
             echo "<td><input type = 'text' placeholder = '".$result->columnName($i)."' id='newField".$i."'/></td>";
         }
-        echo "<th><button type='submit' onclick='createEntry(`guest`)'>Create New</button></th>";
+        echo "<th><button type='submit' onclick='createNewEntry(`guest`)'>Create New</button></th>";
         echo "</div>";
     echo "</tr>";
     echo "</tbody></table>";
