@@ -36,10 +36,14 @@
     }
     //text entry for creation of new item
     echo "<tr>";
+        echo "<div id='createEntryInput'>";
+        //echo "<input type = 'text' input'/>";
         for ($i =0;$i<$field_amount;$i++){
-            echo "<td><input type = 'text' placeholder = '".$result->columnName($i)."'></td>";
+            //text input for each field in table
+            echo "<td><input type = 'text' placeholder = '".$result->columnName($i)."' id='newField".$i."'/></td>";
         }
-        echo "<th><button>Create New</button></th>";
+        echo "<th><button type='submit' onclick='createEntry(`guest`)'>Create New</button></th>";
+        echo "</div>";
     echo "</tr>";
     echo "</tbody></table>";
 
