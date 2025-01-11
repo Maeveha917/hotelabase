@@ -47,7 +47,6 @@
     }
     //updates the contents of a specified entry
     function updateEntry(tableName, pkName,key){
-        console.log("UPDATEEE");
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
             alert(this.responseText);
@@ -65,15 +64,12 @@
         //keep pushing element contents to the array while there are elements with the specified ids
         do{
             //gets element at corrosponding id while iterating to next
-            console.log(idPrefix+elementNo);
             let element = document.getElementById(idPrefix+elementNo++);
             if (element){
                 //when dealing with input --> value, when regular html, innertext
                 if(isInput){
-                    console.log(element.value);
                     contentArray.push(element.value);
                 }else{
-                    console.log(element.innerText);
                     contentArray.push(element.innerText);
                 }
                 

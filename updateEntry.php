@@ -24,8 +24,6 @@
     //add commas to seperate all entries
     $query .= implode(",",$fieldArray)." WHERE ".$pkName." = ".$key.";";
 
-    echo $query;
-
     $isSuccessful = $db->exec($query);
 
     if ($isSuccessful){
