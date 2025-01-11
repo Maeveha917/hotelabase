@@ -28,8 +28,9 @@
     //deletes an entry from any given table, with the use of the corrosponding primary key
     function deleteEntry(tableName,pkName,key){
         const xhttp = new XMLHttpRequest();
-        xhttp.onload = function() {
+        xhttp.onload = function() {drawTable(tableName);
             alert(this.responseText);
+            drawTable(tableName);
         }
         xhttp.open("GET", "deleteEntry.php?name="+tableName+"&pkName="+pkName+"&key="+key);
         xhttp.send();
@@ -39,6 +40,7 @@
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
             alert(this.responseText);
+            drawTable(tableName);
         }
         xhttp.open("GET", "createEntry.php?name="+tableName+"&fieldArray="+JSON.stringify(getTagContents("newField")));
         xhttp.send(); 

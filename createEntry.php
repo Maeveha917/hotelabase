@@ -16,6 +16,7 @@
             echo $fieldArray[$i];
         }
     }
+    //add commas to seperate all entries
     $query .= implode(",",$fieldArray).");";
     echo $query;
 
