@@ -25,10 +25,10 @@
         echo "<tr>";
         //print each field in each entry
         for ($i =0;$i<$field_amount;$i++){
-            echo "<td contenteditable='true'>".$entry[$i]."</td>";
+            echo "<td contenteditable='true' id=field".$entry[$pkName].$i.">".$entry[$i]."</td>";
         }
         //edit button, upon click update database with new values. !!only if valid!!
-        echo "<td><button>Update</button></td>";
+        echo "<td><button onclick='updateEntry(`".$table_name."`,`".$pkName."`,`".$entry[$pkName]."`)'>Update</button></td>";
         //delete button, with elements associated table name and id
         //TODO find better way to concat here
         echo "<td><button onclick='deleteEntry(`".$table_name."`,`".$pkName."`,`".$entry[$pkName]."`)'>Delete</button></td>";

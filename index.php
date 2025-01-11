@@ -45,17 +45,38 @@
         xhttp.open("GET", "createEntry.php?name="+tableName+"&fieldArray="+JSON.stringify(getTagContents("newField")));
         xhttp.send(); 
     }
+    //updates the contents of a specified entry
+    function updateEntry(tableName, pkName,key){
+        console.log("UPDATEEE");
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            alert(this.responseText);
+            drawTable(tableName);
+        }
+        console.log(getTagContents("field"+key,false));
+        xhttp.open("GET", "updateEntry.php?name="+tableName+"&fieldArray="+JSON.stringify(getTagContents("field"+key,false))+"&pkName="+pkName+"&key="+key);
+        xhttp.send(); 
+    }
     //retrives the contents of tags with a common start of their id followed by a number
-    function getTagContents(idPrefix){
+    function getTagContents(idPrefix, isInput = true){
         let contentArray = [];
         let elementPresent = true;
         let elementNo = 0;
         //keep pushing element contents to the array while there are elements with the specified ids
         do{
             //gets element at corrosponding id while iterating to next
+            console.log(idPrefix+elementNo);
             let element = document.getElementById(idPrefix+elementNo++);
             if (element){
-                contentArray.push(element.value);
+                //when dealing with input --> value, when regular html, innertext
+                if(isInput){
+                    console.log(element.value);
+                    contentArray.push(element.value);
+                }else{
+                    console.log(element.innerText);
+                    contentArray.push(element.innerText);
+                }
+                
             }else{
                 elementPresent = false;
             }
