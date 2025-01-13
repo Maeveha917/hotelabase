@@ -33,7 +33,7 @@
     $isSuccessful = $db->exec($query);
 
     if ($isSuccessful){
-        echo "Updated Successfuly! ".$query;
+        echo "Updated Successfuly!";
     }else{
         echo "Error updating entry in ".$table_name." using query: \n\n".$query;
     }
