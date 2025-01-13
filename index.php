@@ -17,7 +17,7 @@
     ?>
     <div id="table menu"></div>
     <br> 
-    <div style='overflow-x:auto;' id="table">Click any of the above buttons to display table contents</div>
+    <div style='overflow-x:auto;' id="table"><p style = "text-align:center;">Click any of the above buttons to display their respective table contents</p></div>
 
     <script>
     //takes an arbitrary tables name, and draws it

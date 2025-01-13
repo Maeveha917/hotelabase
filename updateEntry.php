@@ -16,8 +16,14 @@
 
     //treat the fields for being added to query
     for ($i = 0; $i<sizeof($fieldArray);$i++){
-        if (!is_numeric($fieldArray[$i])){
-            $fieldArray[$i] = "'".trim($fieldArray[$i])."'";
+        $fieldArray[$i] = trim($fieldArray[$i]);
+        if ($fieldArray[$i] == ''){
+            $fieldArray[$i] = "NULL";
+        }
+        else{
+            if (!is_numeric($fieldArray[$i])){
+                $fieldArray[$i] = "'".$fieldArray[$i]."'";
+            }
         }
         $fieldArray[$i] = $columnNames->fetchArray(SQLITE3_NUM)[0]." = ".$fieldArray[$i];
     }
@@ -27,9 +33,9 @@
     $isSuccessful = $db->exec($query);
 
     if ($isSuccessful){
-        echo "Updated Successfuly!";
+        echo "Updated Successfuly! ".$query;
     }else{
-        echo "Error updating entry in ".$table_name." using query: \n".$query;
+        echo "Error updating entry in ".$table_name." using query: \n\n".$query;
     }
 
     //close database connection
