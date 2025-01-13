@@ -5,10 +5,8 @@ body {
 }
 
 table{
-    /*display: block;*/
     margin-left: auto;
     margin-right: auto;
-    /*width: 40%;*/
     table-layout: auto;
     background-color: #faedcd;
     border-radius: 25px;
@@ -34,14 +32,12 @@ button:hover{
 
 input {
     background-color: #fefae0;
+    color: #bc6c25;
     padding: 4px;
     border-radius: 5px;
     border: 0;
+    width: 90%;
 }
-
-th {
-    
-} 
 
 .tableContents:hover {
     background-color: #fefae0;

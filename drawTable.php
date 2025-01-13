@@ -11,7 +11,7 @@
     //get name(s)(for now only one primary key may work) of primary key of table
     $pkName = $db->query("SELECT l.name FROM pragma_table_info('".$table_name."') as l WHERE l.pk = 1;")->fetchArray(SQLITE3_NUM)[0];
    
-    echo "<table> <thead>";
+    echo "<div style='overflow-x:auto;'> <table> <thead>";
     //draw names of columns as table headings
     echo "<tr>";
         for ($i =0;$i<$field_amount;$i++){
@@ -46,7 +46,7 @@
         echo "<td><button onclick='deleteEntry(`".$table_name."`,`".$pkName."`,`".$entry[$pkName]."`)'>Delete</button></td>";
         echo "</tr>";
     }
-    echo "</tbody></table>";
+    echo "</div> </tbody></table>";
 
     //close database connection
     $db->close();
