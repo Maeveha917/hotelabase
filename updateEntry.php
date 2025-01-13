@@ -10,7 +10,7 @@
 
     //get all column names
     $columnNames = $db->query("SELECT name from pragma_table_info('".$table_name."');");
-    
+
     //construct query to update entry
     $query = "UPDATE ".$table_name." SET ";
 
@@ -29,8 +29,7 @@
     if ($isSuccessful){
         echo "Updated Successfuly!";
     }else{
-
-        echo "Error updating entry in ".$table_name;
+        echo "Error updating entry in ".$table_name." using query: \n".$query;
     }
 
     //close database connection

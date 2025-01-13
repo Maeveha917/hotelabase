@@ -24,7 +24,7 @@
         echo "Created Successfuly!";
     }else{
 
-        echo "Error creating new entry in ".$table_name;
+        echo "Error creating new entry in ".$table_name." using query: \n".$query;
     }
 
     //close database connection

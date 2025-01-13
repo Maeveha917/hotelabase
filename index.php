@@ -16,8 +16,8 @@
         include("tableMenu.php");           
     ?>
     <div id="table menu"></div>
-    <br>
-    <div id="table">Click any of the above buttons to display table contents</div>
+    <br> 
+    <div style='overflow-x:auto;' id="table">Click any of the above buttons to display table contents</div>
 
     <script>
     //takes an arbitrary tables name, and draws it

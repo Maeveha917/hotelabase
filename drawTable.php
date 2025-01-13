@@ -11,7 +11,7 @@
     //get name(s)(for now only one primary key may work) of primary key of table
     $pkName = $db->query("SELECT l.name FROM pragma_table_info('".$table_name."') as l WHERE l.pk = 1;")->fetchArray(SQLITE3_NUM)[0];
    
-    echo "<div style='overflow-x:auto;'> <table> <thead>";
+    echo "<table> <thead>";
     //draw names of columns as table headings
     echo "<tr>";
         for ($i =0;$i<$field_amount;$i++){
@@ -37,7 +37,7 @@
         echo "<tr>";
         //print each field in each entry
         for ($i =0;$i<$field_amount;$i++){
-            echo "<td contenteditable='true' id=field class = 'tableContents'".$entry[$pkName].$i.">".$entry[$i]."</td>";
+            echo "<td contenteditable='true' class = 'tableContents' id=field".$entry[$pkName].$i.">".$entry[$i]."</td>";
         }
         //edit button, upon click update database with new values. !!only if valid!!
         echo "<td><button onclick='updateEntry(`".$table_name."`,`".$pkName."`,`".$entry[$pkName]."`)'>Update</button></td>";
@@ -46,7 +46,7 @@
         echo "<td><button onclick='deleteEntry(`".$table_name."`,`".$pkName."`,`".$entry[$pkName]."`)'>Delete</button></td>";
         echo "</tr>";
     }
-    echo "</div> </tbody></table>";
+    echo "</tbody></table>";
 
     //close database connection
     $db->close();
