@@ -1,0 +1,74 @@
+body {
+    background-color: #fefae0;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: #bc6c25;
+}
+
+table{
+    /*display: block;*/
+    margin-left: auto;
+    margin-right: auto;
+    /*width: 40%;*/
+    table-layout: auto;
+    background-color: #faedcd;
+    border-radius: 25px;
+    padding: 25px;
+}
+
+header{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+
+button{
+    background-color: #d4a373;
+    color: #fefae0;
+    border-radius: 5px;
+    padding: 5px;
+    border: 0;
+}
+
+button:hover{
+    background-color: #bc6c25;
+}
+
+input {
+    background-color: #fefae0;
+    padding: 4px;
+    border-radius: 5px;
+    border: 0;
+}
+
+th {
+    
+} 
+
+.tableContents:hover {
+    background-color: #fefae0;
+    border-radius: 5px;
+}
+
+.tableSelectionRow{
+    text-align: center;
+    background-color: #ccd5ae;
+    
+    border-radius: 25px;
+    padding: 25px;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.tableButton{
+    display:inline-flexbox;
+    font-size: large;
+    color: #283618;
+    border: 0;
+    background: none;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.tableButton:hover {
+    background-color: #e9edc9;
+    border-radius: 5px;
+}

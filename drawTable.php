@@ -18,22 +18,7 @@
             echo "<th>".$result->columnName($i)."</th>";
         }
     echo "</tr> </thead> <tbody>";
-    
-    //draw table content corresponding to each heading, entry at a time
-    while ($entry = $result->fetchArray(SQLITE3_BOTH)) {
-        
-        echo "<tr>";
-        //print each field in each entry
-        for ($i =0;$i<$field_amount;$i++){
-            echo "<td contenteditable='true' id=field".$entry[$pkName].$i.">".$entry[$i]."</td>";
-        }
-        //edit button, upon click update database with new values. !!only if valid!!
-        echo "<td><button onclick='updateEntry(`".$table_name."`,`".$pkName."`,`".$entry[$pkName]."`)'>Update</button></td>";
-        //delete button, with elements associated table name and id
-        //TODO find better way to concat here
-        echo "<td><button onclick='deleteEntry(`".$table_name."`,`".$pkName."`,`".$entry[$pkName]."`)'>Delete</button></td>";
-        echo "</tr>";
-    }
+
     //text entry for creation of new item
     echo "<tr>";
         echo "<div id='createEntryInput'>";
@@ -45,6 +30,22 @@
         echo "<th><button type='submit' onclick='createNewEntry(`".$table_name."`)'>Create New</button></th>";
         echo "</div>";
     echo "</tr>";
+    
+    //draw table content corresponding to each heading, entry at a time
+    while ($entry = $result->fetchArray(SQLITE3_BOTH)) {
+        
+        echo "<tr>";
+        //print each field in each entry
+        for ($i =0;$i<$field_amount;$i++){
+            echo "<td contenteditable='true' id=field class = 'tableContents'".$entry[$pkName].$i.">".$entry[$i]."</td>";
+        }
+        //edit button, upon click update database with new values. !!only if valid!!
+        echo "<td><button onclick='updateEntry(`".$table_name."`,`".$pkName."`,`".$entry[$pkName]."`)'>Update</button></td>";
+        //delete button, with elements associated table name and id
+        //TODO find better way to concat here
+        echo "<td><button onclick='deleteEntry(`".$table_name."`,`".$pkName."`,`".$entry[$pkName]."`)'>Delete</button></td>";
+        echo "</tr>";
+    }
     echo "</tbody></table>";
 
     //close database connection

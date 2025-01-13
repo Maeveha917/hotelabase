@@ -4,15 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Hotelabase</title>
 </head>
-
-<?php
-    include("tableMenu.php");           
-?>
-
+<header>
+    <h1> Hotelabase </h1>
+</header>
 <body>
+    
+    <?php
+        include("tableMenu.php");           
+    ?>
     <div id="table menu"></div>
+    <br>
     <div id="table">Click any of the above buttons to display table contents</div>
 
     <script>

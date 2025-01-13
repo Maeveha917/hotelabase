@@ -17,7 +17,7 @@
     //treat the fields for being added to query
     for ($i = 0; $i<sizeof($fieldArray);$i++){
         if (!is_numeric($fieldArray[$i])){
-            $fieldArray[$i] = "'".$fieldArray[$i]."'";
+            $fieldArray[$i] = "'".trim($fieldArray[$i])."'";
         }
         $fieldArray[$i] = $columnNames->fetchArray(SQLITE3_NUM)[0]." = ".$fieldArray[$i];
     }

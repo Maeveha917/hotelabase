@@ -5,9 +5,11 @@
     $result = $db->query("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE '%sqlite%' ORDER BY name;");
 
     //print all tables names as buttons
+    echo "<div class='tableSelectionRow'>";
     while ($row = $result->fetchArray(SQLITE3_NUM)) {
-        echo "<button onclick='drawTable(`".$row[0]."`)'>".$row[0]."</button>";
+        echo "<button class = 'tableButton' onclick='drawTable(`".$row[0]."`)'>".$row[0]."</button>";
     }
+    echo "</div>";
 
     //close database connection
     $db->close();
